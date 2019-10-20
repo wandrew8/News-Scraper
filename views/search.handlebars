@@ -1,0 +1,86 @@
+<header>
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <a class="navbar-brand" href="#"><strong>News Collection</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/saved">Saved Articles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/search">Search Articles</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="view intro-2" style="">
+    <div class="full-bg-img">
+      <div class="mask rgba-blue-light pattern-1 flex-center">
+        <div class="container text-center white-text wow fadeInUp">
+          <h1 class="title">NEWS COLLECTION</h1>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+<main class="main-content">
+  <div class="heading mask pattern-1">
+    <h1>Here are the top articles from New York Times - Travel Tips</h1>
+
+  </div>
+
+  <div id="list-container" class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <div class="card">
+          <a>
+            <div class="card-img-top mask rgba-blue-strong">
+              <img src="/assets/images/travel.jpg" width="100%">
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Headline Goes Here!</h2>
+              <hr>
+              <p class="byline"><span>By: </span>Author's Name</small>
+                <p class="card-text">Here is where the summary of the article goes here. And the whole card is a
+                  clickable
+                  link to the new
+                  york time's article</p>
+            </div>
+          </a>
+          <div class="text-center pb-3 save-article-button">
+            <a class="btn btn-primary" data-userid={{id}}>Save Article<i class="fas pl-2 fa-share-square"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------------------------------- ARTICLE SAVED MODAL ------------------------------------------------>
+
+  <div class="modal" id="article-saved" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="sent-modal-text modal-title w-100 font-weight-bold">Article Saved to your collection!</h4>
+          <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          <div class="modal-body text-center">
+            <p class="save-link">View your saved articles <a href="/saved">here</a></p>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</main>

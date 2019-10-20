@@ -1,0 +1,322 @@
+* {
+  font-family: "Quicksand";
+}
+
+.jumbotron {
+  padding: 0px;
+  background-color: #fff;
+  text-align: center;
+  height: 90vh;
+  width: 100vw;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0652DD), to(#2e86de));
+  background: linear-gradient(#0652DD, #2e86de);
+}
+
+.jumbotron .row {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0px;
+  margin: auto;
+}
+
+.jumbotron col-xs-12 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+.jumbotron h1 {
+  font-family: "Abril Fatface", "cursive";
+  color: #fff;
+  font-size: 6rem;
+  border-top: 5px solid #54a0ff;
+  border-bottom: 5px solid #54a0ff;
+  margin: 3rem 1rem;
+  text-align: center;
+}
+
+.jumbotron .vertical {
+  margin: auto;
+}
+
+.jumbotron a {
+  max-width: 150px;
+  vertical-align: middle;
+}
+
+.jumbotron p {
+  color: #9bd3fd;
+  font-size: 1.5rem;
+}
+
+.jumbotron .subheading {
+  font-size: 1rem;
+}
+
+.jumbotron img {
+  height: 50px;
+  width: auto;
+  margin: 2rem auto;
+}
+
+header .view {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0652DD), to(#2e86de));
+  background: linear-gradient(#0652DD, #2e86de);
+  height: 25vh;
+}
+
+header .navbar {
+  background-color: transparent;
+}
+
+header .top-nav-collapse {
+  background-color: #4285F4;
+}
+
+header .wow {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+header h1 {
+  font-family: "Abril Fatface", "cursive";
+  color: #fff;
+  font-size: 6rem;
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+  padding-top: 3.5rem;
+}
+
+.main-content {
+  min-height: 75vh;
+}
+
+.main-content h1 {
+  text-align: center;
+  padding: 1rem;
+  background: #fff;
+  opacity: 0.8;
+}
+
+.main-content h2 {
+  font-size: 1.2rem;
+}
+
+.main-content .byline {
+  padding-bottom: 7px;
+  font-size: 0.8rem;
+  color: #444;
+  text-align: center;
+}
+
+.card {
+  height: 475px;
+  margin: .5rem;
+}
+
+.card .card-title {
+  overflow: hidden;
+}
+
+.card .card-text {
+  height: 60px;
+  padding: 5px 0px;
+  overflow: auto;
+}
+
+.card .card-body {
+  padding: 1rem;
+}
+
+.card .delete-article {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #2e86de;
+}
+
+.card .button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.saved-page h1 {
+  text-align: center;
+  padding: 1rem;
+  background: #fff;
+  opacity: 0.8;
+}
+
+.modal .modal-dialog {
+  width: 500px;
+  margin: 1rem auto;
+}
+
+.modal h4 {
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.modal .save-link {
+  padding: 1rem;
+}
+
+.modal .comment-container {
+  position: relative;
+  width: 95%;
+  border: 2px solid #54a0ff;
+  margin: 0.5rem auto;
+}
+
+.modal .comment-container p {
+  padding: 4rem 1rem;
+}
+
+.modal .comment-container span {
+  position: absolute;
+  top: 6px;
+  right: 5px;
+  color: #54a0ff;
+}
+
+/* Bootstrap Extra Large */
+@media screen and (max-width: 1200px) {
+  #title {
+    font-size: 5rem;
+  }
+  .card {
+    height: 420px;
+    margin: .5rem;
+  }
+  .card .card-title {
+    overflow: hidden;
+  }
+  .card .card-text {
+    height: 70px;
+    padding: 5px 0px;
+    overflow: auto;
+  }
+  .card .card-body {
+    padding: 1rem;
+  }
+}
+
+/* Media Query- Ipad Pro*/
+@media screen and (max-width: 1024px) {
+  .card {
+    height: 400px;
+    margin: .5rem;
+  }
+  .card .card-title {
+    overflow: hidden;
+  }
+  .card .card-text {
+    height: 70px;
+    padding: 5px 0px;
+    overflow: auto;
+  }
+  .card .card-body {
+    padding: 1rem;
+  }
+}
+
+/* Media Query - Bootstrap Large */
+@media screen and (max-width: 992px) {
+  #title {
+    font-size: 5rem;
+  }
+  .title {
+    font-size: 4rem;
+  }
+  .card {
+    height: 475px;
+    margin: .5rem;
+  }
+  .card .card-title {
+    overflow: hidden;
+  }
+  .card .card-text {
+    height: 70px;
+    padding: 5px 0px;
+    overflow: auto;
+  }
+  .card .card-body {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #title {
+    font-size: 5rem;
+    margin: 4rem 1rem;
+  }
+  .title {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #title {
+    font-size: 2.5rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .card {
+    height: auto;
+    margin: .5rem;
+  }
+  .card .card-title {
+    overflow: hidden;
+  }
+  .card .card-text {
+    height: auto;
+    padding: 5px 0px;
+  }
+  .card .card-body {
+    padding: 1rem;
+  }
+  .modal {
+    width: 100%;
+  }
+  .modal .modal-dialog {
+    width: auto;
+  }
+}
+
+/*Media Query - Iphone 6/7/8 PLUS */
+@media screen and (max-width: 414px) {
+  .jumbotron {
+    padding: 0px;
+  }
+  .jumbotron #title {
+    font-size: 3rem;
+    margin: 1.8rem 0.5rem;
+    text-align: center;
+    color: white;
+  }
+  .jumbotron p {
+    font-size: 1rem;
+    margin: 5px;
+  }
+  .jumbotron img {
+    height: 30px;
+    width: auto;
+    margin: 1rem auto;
+  }
+  .jumbotron a {
+    margin: 2rem;
+  }
+}
+
+/*Media Query - Iphone 6/7/8/X*/
+/*# sourceMappingURL=style.css.map */

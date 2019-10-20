@@ -1,0 +1,163 @@
+<header>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+        <a class="navbar-brand" href="#"><strong>News Collection</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/saved">Saved Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/search">Search Articles</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="view intro-2" style="">
+        <div class="full-bg-img">
+            <div class="mask rgba-blue-light pattern-1 flex-center">
+                <div class="container text-center white-text wow fadeInUp">
+                    <h1 class="title">NEWS COLLECTION</h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+<main class="main-content">
+    <div class="heading mask pattern-1">
+        <h1>Your Saved Articles</h1>
+    </div>
+
+
+    <div id="list-container" class="container-fluid">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card">
+                    {{!-- <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close"> --}}
+                    <span class="delete-article" aria-hidden="true"><i class="fas fa-2x fa-times-circle"></i></span>
+                    </button>
+                    <a>
+                        <div class="card-img-top mask rgba-blue-strong">
+                            <img src="/assets/images/travel.jpg" width="100%">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title">Headline Goes Here!</h2>
+                            <hr>
+                            <p class="byline"><span>By: </span>Author's Name</small>
+                                <p class="card-text">Here is where the summary of the article goes here. And the whole
+                                    card is a
+                                    clickable
+                                    link to the new
+                                    york time's article</p>
+                        </div>
+                    </a>
+                    <div class="button-container">
+                        <div class="text-center pb-3 add-comment-button">
+                            <a class="btn btn-primary" data-userid={{id}}>Add Comment<i
+                                    class="fas pl-2 fa-plus"></i></a>
+                        </div>
+                        <div class="text-center pb-3 view-comments-button">
+                            <a class="btn btn-primary" data-userid={{id}}>View<i class="far pl-2 fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card">
+                    <span class="delete-article" aria-hidden="true"><i class="fas fa-2x fa-times-circle"></i></span>
+                    <a>
+                        <div class="card-img-top mask rgba-blue-strong">
+                            <img src="/assets/images/travel.jpg" width="100%">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title">Headline Goes Here!</h2>
+                            <hr>
+                            <p class="byline"><span>By: </span>Author's Name</small>
+                                <p class="card-text">Here is where the summary of the article goes here. And the whole
+                                    card is a
+                                    clickable
+                                    link to the new
+                                    york time's article</p>
+                        </div>
+                    </a>
+                    <div class="button-container">
+                        <div class="text-center pb-3 add-comment-button">
+                            <a class="btn btn-primary" data-userid={{id}}>Add Comment<i
+                                    class="fas pl-2 fa-plus"></i></a>
+                        </div>
+                        <div class="text-center pb-3 view-comments-button">
+                            <a class="btn btn-primary" data-userid={{id}}>View<i class="far pl-2 fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- ---------------------------------- ADD NEW COMMENT MODAL FORM ------------------------------------------------>
+
+    <div class="modal modal-lg" id="add-comment-form" role="dialog" aria-labelledby="myModalLabel"
+        data-backdrop="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="sign-in-text modal-title w-100 font-weight-bold">Add New Comment</h4>
+                    <button type="submit" class="close-modal" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="newTaskForm" class="modal-body mx-3">
+
+                    <div class="form-group shadow-textarea">
+                        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3"
+                            placeholder="Add comment here..."></textarea>
+                    </div>
+
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="submit" id="taskSubmit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------------------------------- VIEW COMMENTS MODAL ------------------------------------------------>
+
+    <div class="modal modal-lg" id="view-comments-modal" role="dialog" aria-labelledby="myModalLabel"
+        data-backdrop="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="sign-in-text modal-title w-100 font-weight-bold">Notes and Comments</h4>
+                    <button type="submit" class="close-modal" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="comment-container">
+                    <span class="delete-comment" aria-hidden="true">Delete Comment<i class="fas ml-2 fa-lg fa-times-circle"></i></span>
+                    <p>Here is my comment about this news article. I think this is a great article, I need to remember
+                        such and such points from the article so I can reference it later.</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</main>

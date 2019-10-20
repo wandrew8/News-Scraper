@@ -1,0 +1,342 @@
+  // COLOR VARIABLES
+  $primary: #54a0ff;
+  $accent: #2e86de;
+  $font: #9bd3fd;
+
+  // FONT VARIABLES
+  $heading: 'Abril Fatface', 'cursive';
+  $body: 'Quicksand';
+
+* {
+  font-family: $body;
+}
+
+// ------------------  FRONT PAGE  -------------------------
+
+.jumbotron {
+  padding: 0px;
+  background-color: #fff;
+  text-align: center;
+  height: 90vh;
+  width: 100vw;
+  background: linear-gradient(#0652DD, $accent);
+  .row {
+    justify-content: center;
+    padding: 0px;
+    margin: auto;
+
+  }
+  col-xs-12 {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  h1 {
+    font-family: $heading;
+    color: #fff;
+    font-size: 6rem;
+    border-top: 5px solid $primary;
+    border-bottom: 5px solid $primary;
+    margin: 3rem 1rem;
+    text-align: center;
+  }
+  .vertical {
+    margin: auto;
+  }
+  a {
+    max-width: 150px;
+    vertical-align: middle;
+  }
+  p {
+    color: $font;
+    font-size: 1.5rem;
+  }
+  .subheading {
+    font-size: 1rem;
+  }
+  img {
+    height: 50px;
+    width: auto;
+    margin: 2rem auto;
+    
+  }
+  
+}
+
+// ---------------------- HEADING AND NAVIGATION --------------------------
+
+header {
+  .view {
+    background: linear-gradient(#0652DD, $accent);
+    height: 25vh;
+  }
+  .navbar {
+    background-color: transparent;
+  }
+  .top-nav-collapse {
+    background-color: #4285F4;
+  }
+  .wow {
+    justify-content: end;
+  }
+  h1 {
+    font-family: $heading;
+    color: #fff;
+    font-size: 6rem;
+    align-self: baseline;
+    padding-top: 3.5rem;
+  }
+}
+
+
+// ---------------------- SEARCH PAGE --------------------------
+
+.main-content {
+  min-height: 75vh;
+  h1 {
+    text-align: center;
+    padding: 1rem;
+    background: #fff;
+    opacity: 0.8;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  .byline {
+    padding-bottom: 7px;
+    font-size: 0.8rem;
+    color: #444;
+    text-align: center;
+  }
+}
+
+// ---------------------- CARD STYLING --------------------------
+
+.card {
+  height: 475px;
+  margin: .5rem;
+  .card-title {
+    overflow: hidden;
+  }
+  .card-text {
+    height: 60px;
+    padding: 5px 0px;
+    overflow: auto;
+  }
+  .card-body {
+    padding: 1rem;
+  }
+  .delete-article {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: $accent;
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+// ---------------------- SAVED ARTICLES PAGE --------------------------
+
+.saved-page {
+  h1 {
+    text-align: center;
+    padding: 1rem;
+    background: #fff;
+    opacity: 0.8;
+  }
+}
+
+// ---------------------- MODALS PAGE --------------------------
+
+.modal {
+  .modal-dialog {
+    width: 500px;
+    margin: 1rem auto;
+  }
+  h4 {
+    padding: 1rem;
+    font-size: 1.5rem;
+
+  }
+  .save-link {
+    padding: 1rem;
+  }
+
+  .comment-container {
+    position: relative;
+    width: 95%;
+    border: 2px solid $primary;
+    margin: 0.5rem auto;
+    p {
+      padding: 4rem 1rem;
+    }
+    span {
+      position: absolute;
+      top: 6px;
+      right: 5px;
+      color: $primary;
+    }
+  }
+}
+// --------------------- MEDIA QUERIES --------------------------
+
+@media screen and (max-width: 1256px) {
+    
+}
+
+/* Bootstrap Extra Large */
+
+@media screen and (max-width: 1200px) {
+    #title {
+      font-size: 5rem;
+    }
+
+    .card {
+      height: 420px;
+      margin: .5rem;
+      .card-title {
+        overflow: hidden;
+      }
+      .card-text {
+        height: 70px;
+        padding: 5px 0px;
+        overflow: auto;
+      }
+      .card-body {
+        padding: 1rem;
+      }
+    }
+    
+}
+
+/* Media Query- Ipad Pro*/
+
+@media screen and (max-width: 1024px) {
+  .card {
+    height: 400px;
+    margin: .5rem;
+    .card-title {
+      overflow: hidden;
+    }
+    .card-text {
+      height: 70px;
+      padding: 5px 0px;
+      overflow: auto;
+    }
+    .card-body {
+      padding: 1rem;
+    }
+  }
+}
+
+/* Media Query - Bootstrap Large */
+
+@media screen and (max-width: 992px) {
+  #title {
+    font-size: 5rem;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .card {
+    height: 475px;
+    margin: .5rem;
+    .card-title {
+      overflow: hidden;
+    }
+    .card-text {
+      height: 70px;
+      padding: 5px 0px;
+      overflow: auto;
+    }
+    .card-body {
+      padding: 1rem;
+    }
+  }
+    
+    
+}
+
+@media screen and (max-width: 768px) {
+    #title {
+      font-size: 5rem;
+      margin: 4rem 1rem;
+
+    }
+    .title {
+      font-size: 4rem;
+    }
+    
+
+    
+}
+
+@media screen and (max-width: 600px) {
+  #title {
+    font-size: 2.5rem;
+  }
+  .title {
+    font-size: 2rem
+  }
+
+  .card {
+    height: auto;
+    margin: .5rem;
+    .card-title {
+      overflow: hidden;
+    }
+    .card-text {
+      height: auto;
+      padding: 5px 0px;
+    }
+    .card-body {
+      padding: 1rem;
+    }
+  }
+  .modal {
+    width: 100%;
+    .modal-dialog {
+      width: auto;
+    }
+  }
+}
+/*Media Query - Iphone 6/7/8 PLUS */
+
+@media screen and (max-width: 414px) {
+  .jumbotron {
+    padding: 0px;
+    #title {
+      font-size: 3rem;
+      margin: 1.8rem 0.5rem;
+      text-align: center;
+      color: white;
+    }
+    p {
+      font-size: 1rem;
+      margin: 5px;
+    }
+    img {
+      height: 30px;
+      width: auto;
+      margin: 1rem auto;
+      
+    }
+    a {
+      margin: 2rem;
+    }
+    
+  }
+
+}
+
+/*Media Query - Iphone 6/7/8/X*/
+
+@media screen and (max-width: 375px) {
+  
+  
+}
