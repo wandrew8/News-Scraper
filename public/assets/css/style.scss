@@ -93,11 +93,13 @@ header {
 
 .main-content {
   min-height: 75vh;
-  h1 {
-    text-align: center;
-    padding: 1rem;
-    background: #fff;
-    opacity: 0.8;
+  .heading {
+    display: flex;
+    justify-content: center;
+  }
+  #scrape {
+    display: block;
+    margin: 1rem auto;
   }
   h2 {
     font-size: 1.2rem;
@@ -116,6 +118,7 @@ header {
   height: 475px;
   margin: .5rem;
   .card-title {
+    height: 48px;
     overflow: hidden;
   }
   .card-text {
@@ -136,6 +139,7 @@ header {
     display: flex;
     justify-content: space-around;
   }
+    
 }
 
 // ---------------------- SAVED ARTICLES PAGE --------------------------
@@ -147,6 +151,9 @@ header {
     background: #fff;
     opacity: 0.8;
   }
+}
+.user-message {
+  text-align: center;
 }
 
 // ---------------------- MODALS PAGE --------------------------
@@ -195,7 +202,7 @@ header {
     }
 
     .card {
-      height: 420px;
+      height: 475px;
       margin: .5rem;
       .card-title {
         overflow: hidden;
@@ -216,7 +223,6 @@ header {
 
 @media screen and (max-width: 1024px) {
   .card {
-    height: 400px;
     margin: .5rem;
     .card-title {
       overflow: hidden;
@@ -238,6 +244,7 @@ header {
   #title {
     font-size: 5rem;
   }
+
 
   .title {
     font-size: 4rem;

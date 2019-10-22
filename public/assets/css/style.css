@@ -97,11 +97,18 @@ header h1 {
   min-height: 75vh;
 }
 
-.main-content h1 {
-  text-align: center;
-  padding: 1rem;
-  background: #fff;
-  opacity: 0.8;
+.main-content .heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main-content #scrape {
+  display: block;
+  margin: 1rem auto;
 }
 
 .main-content h2 {
@@ -121,6 +128,7 @@ header h1 {
 }
 
 .card .card-title {
+  height: 48px;
   overflow: hidden;
 }
 
@@ -154,6 +162,10 @@ header h1 {
   padding: 1rem;
   background: #fff;
   opacity: 0.8;
+}
+
+.user-message {
+  text-align: center;
 }
 
 .modal .modal-dialog {
@@ -194,7 +206,7 @@ header h1 {
     font-size: 5rem;
   }
   .card {
-    height: 420px;
+    height: 475px;
     margin: .5rem;
   }
   .card .card-title {
@@ -213,7 +225,6 @@ header h1 {
 /* Media Query- Ipad Pro*/
 @media screen and (max-width: 1024px) {
   .card {
-    height: 400px;
     margin: .5rem;
   }
   .card .card-title {
