@@ -7,7 +7,7 @@ News Collection is an application that scrapes articles from the New York Times 
 gif image goes here
 
 
-You can visit the deployed site here.
+You can visit the deployed site [here](https://warm-plains-56339.herokuapp.com/).
 
 ## Technologies Used
 
