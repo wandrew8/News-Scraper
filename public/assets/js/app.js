@@ -51,7 +51,7 @@ $(document).ready(function () {
 
         $.ajax({
             method: "POST",
-            url: "/articles/delete/:id" + savedId,
+            url: "/articles/delete/" + savedId,
             data: {
                 id: $(this).attr('data-id'),
                 saved: false

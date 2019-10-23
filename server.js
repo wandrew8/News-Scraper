@@ -139,7 +139,7 @@ app.get("/articles/:id", function (req, res) {
         });
 });
 
-app.put("/articles/saved/:id", function (req, res) {
+app.post("/articles/saved/:id", function (req, res) {
     db.Article.updateOne({"_id": req.params.id }, { "saved": true })
         .then(function (dbArticle) {
             // View the added result in the console
@@ -152,7 +152,7 @@ app.put("/articles/saved/:id", function (req, res) {
 });
 
 app.post("/articles/delete/:id", function (req, res) {
-    db.Article.update({ "_id": req.params.id }, { "saved": false, "notes": [] })
+    db.Article.updateOne({ "_id": req.params.id }, { "saved": false, "notes": [] })
         .then(function (data) {
             // View the added result in the console
             console.log(data);

@@ -42,28 +42,7 @@ module.exports = function(app) {
         
       });
 
-      app.put('/articles/delete/:id', (req, res)=>{
-        let id = req.params.id;
+      
 
-        db.Article.updateOne(id, {$set: {saved: false, "notes": []}})
-        .then((dbArticle)=>{
-            res.json(dbArticle);
-        })
-        .catch((err)=>{
-            res.json(err);
-        });
-    });
-
-    app.put('/saved', (req, res)=>{
-        let id = req.params.id;
-
-        db.Article.updateOne(id, {$set: {saved: true}})
-        .then((dbArticle)=>{
-            res.json(dbArticle);
-        })
-        .catch((err)=>{
-            res.json(err);
-        });
-    });
 
 };
