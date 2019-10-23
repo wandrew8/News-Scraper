@@ -13,10 +13,9 @@ module.exports = function(app) {
 
     // Each of these routes handles the HTML page that the user gets sent to.
     
-    app.get("/", function(req, res) {
+    app.get("/", (req, res) => {
         const data = {};
         data.page = "/";
-
         db.Article.find()
         .then(article => {
             data.article = article;
@@ -33,10 +32,9 @@ module.exports = function(app) {
         data.page = '/saved';
         db.Article.find({saved: true})
             // grabs all saved articles based on the articleId in the savedArticles array saved to the user document
-            .populate('articles/saved')
             .then(result => {
-              obj.articles = result[0].savedArticles;
-              res.render('saved.hbs', obj);
+                let hbsobj = {article: result}
+              res.render('saved', hbsobj);
             })
             .catch(() => res.send('An error occured while loading saved articles'));
       
@@ -44,8 +42,28 @@ module.exports = function(app) {
         
       });
 
-    app.get("/saved", function(req, res) {
-        res.render("saved")
-    })
-    
-}
+      app.put('/articles/delete/:id', (req, res)=>{
+        let id = req.params.id;
+
+        db.Article.updateOne(id, {$set: {saved: false, "notes": []}})
+        .then((dbArticle)=>{
+            res.json(dbArticle);
+        })
+        .catch((err)=>{
+            res.json(err);
+        });
+    });
+
+    app.put('/saved', (req, res)=>{
+        let id = req.params.id;
+
+        db.Article.updateOne(id, {$set: {saved: true}})
+        .then((dbArticle)=>{
+            res.json(dbArticle);
+        })
+        .catch((err)=>{
+            res.json(err);
+        });
+    });
+
+};

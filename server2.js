@@ -40,7 +40,9 @@ app.set("view engine", "handlebars");
 // MONGO DB CONFIGURATION
 // ==============================================================================
 
-mongoose.connect("mongodb://localhost/articlesdb", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/newsdb", { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(MONGODB_URI);
 
 // ================================================================================
 //  ROUTES
@@ -49,7 +51,7 @@ mongoose.connect("mongodb://localhost/articlesdb", { useNewUrlParser: true });
 require("./controllers/html_routes.js")(app);
 
 app.get("/", function (req, res) {
-    db.Article.find({"saved": false}).limit(9)
+    db.Article.find({"saved": false})
     .then(function (data) {
         var hbsObject = {
             article: data
@@ -63,10 +65,10 @@ app.get("/", function (req, res) {
 });
 
 app.get("/saved", function (req, res) {
-    db.Article.find({ "saved": true }).populate("comment")
-    .then(function (error, articles) {
+    db.Article.find({ "saved": true })
+    .then(function (error, data) {
         var hbsObject = {
-            article: articles
+            article: data
         };
         res.render("saved", hbsObject);
     });
@@ -113,7 +115,7 @@ app.get("/scrape", function (req, res) {
 
 
 app.get("/articles", function (req, res) {
-    db.Article.find({}).limit(9)
+    db.Article.find({})
         .then(function (dbArticle) {
             // If we were able to successfully find an Article with the given id, send it back to the client
             res.json(dbArticle);
@@ -137,9 +139,8 @@ app.get("/articles/:id", function (req, res) {
         });
 });
 
-app.post("/articles/saved/:id", function (req, res) {
-    // db.Article.findOneAndUpdate({ "_id": req.params.id }, { "saved": true })
-    db.Article.update({"_id": req.params.id }, { "saved": true })
+app.put("/articles/saved/:id", function (req, res) {
+    db.Article.updateOne({"_id": req.params.id }, { "saved": true })
         .then(function (dbArticle) {
             // View the added result in the console
             console.log(dbArticle);
@@ -151,10 +152,10 @@ app.post("/articles/saved/:id", function (req, res) {
 });
 
 app.post("/articles/delete/:id", function (req, res) {
-    Article.findOneAndUpdate({ "_id": req.params.id }, { "saved": false, "notes": [] })
-        .then(function (dbArticle) {
+    db.Article.update({ "_id": req.params.id }, { "saved": false, "notes": [] })
+        .then(function (data) {
             // View the added result in the console
-            console.log(dbArticle);
+            console.log(data);
         })
         .catch(function (err) {
             // If an error occurred, log it
@@ -168,19 +169,19 @@ app.post("comments/saved/:id", function (req, res) {
         article: req.params.id
     });
     console.log(req.body)
-    newComment.save(function (error, comment) {
+    newComment.save(function (error, data) {
         if (error) {
             console.log(error);
         }
         else {
-            Article.findOneAndUpdate({ "_id": req.params.id }, { $push: { "comment": comment } })
+            Article.findOneAndUpdate({ "_id": req.params.id }, { $push: { "Note": body } })
                 .exec(function (err) {
                     if (err) {
                         console.log(err);
                         res.send(err);
                     }
                     else {
-                        res.send(comment);
+                        res.send(data);
                     }
                 });
         }

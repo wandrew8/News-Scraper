@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     //Scrapes articles when search button is clicked
     $("#scrape").on("click", function () {
-        $('#list-container').empty();
+        // $('#list-container').empty();
 
         $.ajax({
             method: "GET",
@@ -14,19 +14,22 @@ $(document).ready(function () {
     });
 
     // Marks article as saved: true when the button is clicked
-    $(".save-article").on("click", function() {
+    $(".save-article").on("click", function () {
         var savedId = $(this).attr("data-id");
 
         $.ajax({
             method: "POST",
             url: "/articles/saved/" + savedId,
             data: {
-                id: $(this).attr('data-id')
-            }.done(function(data) {
-                window.location = "/"
-            })
+                id: $(this).attr('data-id'),
+                saved: true
+            }
+        }).done(function (data) {
+            console.log(data)
+            window.location = "/"
         })
-    })
+    });
+
 
     // Article saved modal on click commands
     $(".save-article-button").on("click", function () {
@@ -44,7 +47,22 @@ $(document).ready(function () {
 
     $(".delete-article").on("click", function () {
         $(this).parent().css("display", "none");
-    })
+        let savedId = $(this).attr("data-id");
+
+        $.ajax({
+            method: "POST",
+            url: "/articles/delete/:id" + savedId,
+            data: {
+                id: $(this).attr('data-id'),
+                saved: false
+            }
+        }).done(function (data) {
+            console.log(data)
+            window.location = "/saved"
+        })
+
+
+    });
 
     // Add comment modal on click commands
 
@@ -69,5 +87,35 @@ $(document).ready(function () {
         $("#view-comments-modal").css("display", "none");
 
     });
+
+    $("#add-comment").on("click", function () {
+        var thisId = $(this).attr("data-id");
+        $.ajax({
+            method: "POST",
+            url: "comments/saved/" + thisId,
+            data: {
+                text: $("#add-comment-text-submit" + thisId).val()
+            }
+        }).done(function (data) {
+            console.log(data)
+            $("#noteText" + thisId).val("");
+            window.location = "/saved"
+
+        });
+    });
+
+    $("span.delete-comment").on("click", function () {
+
+        var noteId = $(this).attr("data-note-id");
+        var articleId = $(this).attr("data-article-id");
+        $.ajax({
+            method: "DELETE",
+            url: "/notes/delete/" + noteId + "/" + articleId
+        }).done(function (data) {
+            console.log(data)
+            window.location = "/saved"
+        })
+    })
+
 
 });
