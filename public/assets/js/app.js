@@ -88,21 +88,41 @@ $(document).ready(function () {
 
     });
 
+    // $("#add-comment").on("click", function () {
+    //     var thisId = $(this).attr("data-article-id");
+    //     $.ajax({
+    //         method: "POST",
+    //         url: "comments/saved/" + thisId,
+    //         data: {
+    //             body: $("#add-comment-text-submit").val(),
+    //         }
+    //     }).done(function (data) {
+    //         console.log(data)
+    //         $("#add-comment-text-submit" + thisId).val("");
+    //         window.location = "/saved"
+
+    //     });
+    // });
+
     $("#add-comment").on("click", function () {
-        var thisId = $(this).attr("data-id");
-        $.ajax({
+        let body = $("#note-body").val().trim();
+        let id = $(this).attr("data-article-id");
+
+          const data = { body: body };
+    
+         $.ajax({
             method: "POST",
-            url: "comments/saved/" + thisId,
-            data: {
-                text: $("#add-comment-text-submit" + thisId).val()
-            }
+            url: "/comments/saved/" + id,
+            data: data
         }).done(function (data) {
             console.log(data)
-            $("#noteText" + thisId).val("");
+            // $("#add-comment-text-submit" + id).val("");
             window.location = "/saved"
 
         });
-    });
+    })
+
+
 
     $("span.delete-comment").on("click", function () {
 

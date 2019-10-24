@@ -64,15 +64,6 @@ app.get("/", function (req, res) {
     });
 });
 
-app.get("/saved", function (req, res) {
-    db.Article.find({ "saved": true })
-    .then(function (error, data) {
-        var hbsObject = {
-            article: data
-        };
-        res.render("saved", hbsObject);
-    });
-});
 
 app.get("/scrape", function (req, res) {
     axios.get("https://www.nytimes.com/spotlight/travel-tips").then(function (response) {
@@ -128,7 +119,7 @@ app.get("/articles", function (req, res) {
 
 app.get("/articles/:id", function (req, res) {
     db.Article.findOne({ "_id": req.params.id })
-        .populate("comment")
+        .populate("note")
         .then(function (dbArticle) {
             // If we were able to successfully find an Article with the given id, send it back to the client
             res.json(dbArticle);
@@ -166,16 +157,16 @@ app.post("/articles/delete/:id", function (req, res) {
 app.post("comments/saved/:id", function (req, res) {
     var newComment = new Comment({
         body: req.body.text,
-        article: req.params.id
+        article: req.body.articleId
     });
     console.log(req.body)
-    newComment.save(function (error, data) {
+    newComment.create(function (error, data) {
         if (error) {
             console.log(error);
         }
         else {
-            Article.findOneAndUpdate({ "_id": req.params.id }, { $push: { "Note": body } })
-                .exec(function (err) {
+            db.Article.updateOne({ "_id": req.params.id }, { $push: { "Note": body, article } })
+                .done(function (err) {
                     if (err) {
                         console.log(err);
                         res.send(err);
