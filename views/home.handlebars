@@ -42,7 +42,7 @@
       {{#each article}}
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
         <div class="card">
-          <a>
+          <a href={{this.link}} target="_blank">
             <div class="card-img-top mask rgba-blue-strong">
               <img src="{{this.image}}" height="200px" width="100%">
             </div>
@@ -54,7 +54,8 @@
             </div>
           </a>
           <div class="text-center pb-3 save-article-button">
-            <a class="btn save-article btn-primary" data-id={{this._id}}>Save Article<i class="fas pl-2 fa-share-square"></i></a>
+            <a class="btn save-article btn-primary" data-id={{this._id}}>Save Article<i
+                class="fas pl-2 fa-share-square"></i></a>
           </div>
         </div>
       </div>
@@ -78,9 +79,9 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-          <div class="modal-body text-center">
-            <p class="save-link">View your saved articles <a href="/saved">here</a></p>
-          </div>
+        <div class="modal-body text-center">
+          <p class="save-link">View your saved articles <a href="/saved">here</a></p>
+        </div>
       </div>
     </div>
   </div>

@@ -13,7 +13,7 @@ You can visit the deployed site [here](https://warm-plains-56339.herokuapp.com/)
 
 ### Back-end Tech
 
-* mongoDB
+* MongoDB
 * Mongoose NPM package
 * Express NPM package
 * Node.js NPM package
